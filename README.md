@@ -31,7 +31,7 @@ Total: 0 (UNKNOWN: 0, LOW: 0, MEDIUM: 0, HIGH: 0, CRITICAL: 0)
 
 ## Official Docker image
 
-[https://hub.docker.com/r/jetbrains/teamcity-server](https://hub.docker.com/r/jetbrains/teamcity-server)
+[https://hub.docker.com/r/prom/prometheus](https://hub.docker.com/r/prom/prometheus)
 ```
 docker pull prom/prometheus:v2.15.2
 ```
