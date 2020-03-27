@@ -6,25 +6,25 @@ Prometheus, image is based on the Alpine base image with 0 vulnerabilities.
 
 Security scanning using Clair
 ```
-clair-scanner secureimages/prometheus:2.17.0-alpine-3.11.5
-2020/03/25 10:20:55 [INFO] ▶ Start clair-scanner
-2020/03/25 10:20:56 [INFO] ▶ Server listening on port 9279
-2020/03/25 10:20:56 [INFO] ▶ Analyzing dac63304c60354902922613d675ec533c6e10879f72d49b7602575ae5d5f9257
-2020/03/25 10:20:57 [INFO] ▶ Analyzing 1b427412a7dcf382730dfd467d72972d7b846b1a30e2f7c2be836333e0d78480
-2020/03/25 10:20:57 [INFO] ▶ Analyzing b6c1cc9f3784c33159d6eea6d4136db8043ef5595b855719304fa221ebb7abdf
-2020/03/25 10:20:57 [INFO] ▶ Analyzing 7d1f0d59607541fd572c427d869f31899a7934e40df8b531b77c581d90ef48ea
-2020/03/25 10:20:57 [INFO] ▶ Image [secureimages/prometheus:2.17.0-alpine-3.11.5] contains NO unapproved vulnerabilities
+clair-scanner secureimages/prometheus:2.17.1-alpine-3.11.5
+2020/03/27 22:32:14 [INFO] ▶ Start clair-scanner
+2020/03/27 22:32:16 [INFO] ▶ Server listening on port 9279
+2020/03/27 22:32:16 [INFO] ▶ Analyzing dac63304c60354902922613d675ec533c6e10879f72d49b7602575ae5d5f9257
+2020/03/27 22:32:16 [INFO] ▶ Analyzing a1bbc186a92480b8afb1e4df8867c0205c0203abcec1783d10dfc81cda7444ba
+2020/03/27 22:32:16 [INFO] ▶ Analyzing e3b916863d37c27a054461366819d38389eabe6e4e7ea118faf04729b54c6ef8
+2020/03/27 22:32:16 [INFO] ▶ Analyzing f7403b5405dd4affe28df62219ca7b19e485161263bff2b368283d25d4d32370
+2020/03/27 22:32:16 [INFO] ▶ Image [secureimages/prometheus:2.17.1-alpine-3.11.5] contains NO unapproved vulnerabilities
 ```
 
 Security scanning using Trivy
 ```
-docker run --rm -v /var/run/docker.sock:/var/run/docker.sock:ro aquasec/trivy:0.5.3 --no-progress secureimages/prometheus:2.17.0-alpine-3.11.5
-2020-03-25T08:21:04.016Z        INFO    Need to update DB
-2020-03-25T08:21:04.016Z        INFO    Downloading DB...
-2020-03-25T08:21:09.088Z        INFO    Reopening DB...
-2020-03-25T08:21:11.779Z        INFO    Detecting Alpine vulnerabilities...
+docker run --rm -v /var/run/docker.sock:/var/run/docker.sock:ro aquasec/trivy:0.5.3 --no-progress secureimages/prometheus:2.17.1-alpine-3.11.5
+2020-03-27T20:32:28.729Z        INFO    Need to update DB
+2020-03-27T20:32:28.729Z        INFO    Downloading DB...
+2020-03-27T20:32:41.628Z        INFO    Reopening DB...
+2020-03-27T20:32:44.738Z        INFO    Detecting Alpine vulnerabilities...
 
-secureimages/prometheus:2.17.0-alpine-3.11.5 (alpine 3.11.5)
+secureimages/prometheus:2.17.1-alpine-3.11.5 (alpine 3.11.5)
 ============================================================
 Total: 0 (UNKNOWN: 0, LOW: 0, MEDIUM: 0, HIGH: 0, CRITICAL: 0)
 ```
@@ -33,33 +33,33 @@ Total: 0 (UNKNOWN: 0, LOW: 0, MEDIUM: 0, HIGH: 0, CRITICAL: 0)
 
 [https://hub.docker.com/r/prom/prometheus](https://hub.docker.com/r/prom/prometheus)
 ```
-docker pull prom/prometheus:v2.17.0
+docker pull prom/prometheus:v2.17.1
 ```
 
 Security scanning using Clair
 ```
-clair-scanner prom/prometheus:v2.17.0
-2020/03/25 10:21:16 [INFO] ▶ Start clair-scanner
-2020/03/25 10:21:18 [INFO] ▶ Server listening on port 9279
-2020/03/25 10:21:18 [INFO] ▶ Analyzing 667676fde0639ebeb24e821cffbc240bb254c45c09d8c7d737f23b9fbfe68391
-2020/03/25 10:21:18 [INFO] ▶ Analyzing 88a46c70cad3e63727733abeb37ff75c991e33e537ea7917cfbf694d45c34e24
-2020/03/25 10:21:18 [INFO] ▶ Analyzing 4678a63382cc644a3b7c4f18fe917ac5192bff9f5b56f51386740ed4bfbba624
-2020/03/25 10:21:18 [INFO] ▶ Analyzing f93fe10c3ada5ed98503d98c2be6bbc4ce9c046ca80f1ee33496ae58c1f99f8d
-2020/03/25 10:21:18 [INFO] ▶ Analyzing d89b20bc6419b6f3dc73cc512b706d55ec826660ebe19eaf7f03ed3d37c29d46
-2020/03/25 10:21:18 [INFO] ▶ Analyzing a0f2a0c7349cd22de2053014b7cbeb91b0b7589cd9493ca93023e4718de44deb
-2020/03/25 10:21:18 [INFO] ▶ Analyzing f4feaf7b70cd0885480c90de2dd0286e57a339922d90fa19400f69f31d8e1d8a
-2020/03/25 10:21:18 [INFO] ▶ Analyzing 436f21b029e0d3332e40e518d3b23bd58423acc0e6e06440f5a58281ec1bceb9
-2020/03/25 10:21:18 [INFO] ▶ Analyzing 21c65a6e733ea4eeb1ab9364f8b4290a5b6135d19ec967f3e3b8905b1383b2cd
-2020/03/25 10:21:18 [INFO] ▶ Analyzing db80c7c4c80137a333a4afbe7bbce61a21769c9aa1629ce7816c41492a56c229
-2020/03/25 10:21:18 [INFO] ▶ Analyzing 18c0329381b3bba727adea8bc5cda3ebf21ae0e3ae375507471ca6c0023de094
-2020/03/25 10:21:18 [INFO] ▶ Analyzing 083ac2b106c31aabc6bae0688cf4747c24bc7cda7817b592c6415de7458f3550
+clair-scanner prom/prometheus:v2.17.1
+2020/03/27 22:32:52 [INFO] ▶ Start clair-scanner
+2020/03/27 22:32:54 [INFO] ▶ Server listening on port 9279
+2020/03/27 22:32:54 [INFO] ▶ Analyzing 667676fde0639ebeb24e821cffbc240bb254c45c09d8c7d737f23b9fbfe68391
+2020/03/27 22:32:54 [INFO] ▶ Analyzing 88a46c70cad3e63727733abeb37ff75c991e33e537ea7917cfbf694d45c34e24
+2020/03/27 22:32:54 [INFO] ▶ Analyzing 4aefd1805f733d6771bd7e1d95a765772d23be48968577c11faf362a9a7406ad
+2020/03/27 22:32:54 [INFO] ▶ Analyzing c91fceca6aef967bb1913af64e3253bd8723bca35c294813de844d95cd1b8295
+2020/03/27 22:32:54 [INFO] ▶ Analyzing 66e31b0fd92666bc2d41ca2b38330b78f54d0c71028b9ee704042608e6103293
+2020/03/27 22:32:54 [INFO] ▶ Analyzing 9d8fe0d79071034385f138a72dad96e1855c9f5a2b44a09dae71fd6c9c7ec530
+2020/03/27 22:32:54 [INFO] ▶ Analyzing fc36efb8ef5269cb1750a94d3383720124ddf4640ca042b94a5e814e054a6ead
+2020/03/27 22:32:54 [INFO] ▶ Analyzing e19bae4555391ca0f984edd0e99190b27b66c7fdda5c8347b055f32452a9e91a
+2020/03/27 22:32:54 [INFO] ▶ Analyzing c02bb08b74c184885f24142eb7635f2cdb6624d9381629821084f1f701debb75
+2020/03/27 22:32:54 [INFO] ▶ Analyzing a2e32b7fcc9a7a96e084c8a19ea2a977d5580957b09069b5de7c13fc3a559d0c
+2020/03/27 22:32:54 [INFO] ▶ Analyzing 672a6d411c5bae1d9444bca0f0057d2676d109f4f8f0263043390645ab2ca55f
+2020/03/27 22:32:54 [INFO] ▶ Analyzing 5a79cd12d8eec2f55c9d10d54d0b031fabc8ed1d093a4f5e7e1e41722fd371cb
 ```
 
 Security scanning using Trivy
 ```
-docker run --rm -v /var/run/docker.sock:/var/run/docker.sock:ro aquasec/trivy:0.5.3 --no-progress prom/prometheus:v2.17.0
-2020-03-25T08:21:25.163Z        INFO    Need to update DB
-2020-03-25T08:21:25.163Z        INFO    Downloading DB...
-2020-03-25T08:21:30.824Z        INFO    Reopening DB...
-2020-03-25T08:21:33.223Z        FATAL   error in image scan: scan failed: failed to apply layers: unknown OS
+docker run --rm -v /var/run/docker.sock:/var/run/docker.sock:ro aquasec/trivy:0.5.3 --no-progress prom/prometheus:v2.17.1
+2020-03-27T20:33:00.090Z        INFO    Need to update DB
+2020-03-27T20:33:00.091Z        INFO    Downloading DB...
+2020-03-27T20:33:05.270Z        INFO    Reopening DB...
+2020-03-27T20:33:08.545Z        FATAL   error in image scan: scan failed: failed to apply layers: unknown OS
 ```
