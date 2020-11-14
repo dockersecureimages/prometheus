@@ -1,9 +1,9 @@
-FROM alpine:3.12.0
+FROM alpine:3.12.1
 LABEL website="Secure Docker Images https://secureimages.dev"
 LABEL description="We secure your business from scratch."
 LABEL maintainer="hireus@secureimages.dev"
 
-ARG PROMETHEUS_VERSION=2.22.0
+ARG PROMETHEUS_VERSION=2.22.1
 
 RUN adduser -s /bin/false -D -H prometheus ;\
     mkdir -p /etc/prometheus /var/lib/prometheus ;\

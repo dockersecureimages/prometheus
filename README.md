@@ -6,24 +6,24 @@ Prometheus, image is based on the Alpine base image with 0 vulnerabilities.
 
 Security scanning using Clair
 ```
-clair-scanner secureimages/prometheus:2.22.0-alpine-3.12.0
-2020/10/15 19:12:52 [INFO] ▶ Start clair-scanner
-2020/10/15 19:12:53 [INFO] ▶ Server listening on port 9279
-2020/10/15 19:12:53 [INFO] ▶ Analyzing 31609b718dd2bed92b93b1ab00c0ff67419a3121d0144bef0dc6ca49718820a7
-2020/10/15 19:12:53 [INFO] ▶ Analyzing 8ec3f0bbb124e1a516aac62d36126fdec444ed9dbd4c1a3f39b9b9258ad4fa7d
-2020/10/15 19:12:53 [INFO] ▶ Analyzing 1059dd94a6f2ad742d605091727344479f121b7aa1186aae1e288ec8e3d261a9
-2020/10/15 19:12:53 [INFO] ▶ Analyzing 7c7b698480a3d1d0cd041429024423ff6cc47498749196f7126cfe980adf7917
-2020/10/15 19:12:53 [INFO] ▶ Image [secureimages/prometheus:2.22.0-alpine-3.12.0] contains NO unapproved vulnerabilities
+clair-scanner secureimages/prometheus:2.22.1-alpine-3.12.1
+2020/11/14 15:59:00 [INFO] ▶ Start clair-scanner
+2020/11/14 15:59:02 [INFO] ▶ Server listening on port 9279
+2020/11/14 15:59:02 [INFO] ▶ Analyzing ff72598b05f57e6f83d56b858ba9783796e99aea2dcef391b3fa688c1e077ae5
+2020/11/14 15:59:02 [INFO] ▶ Analyzing 04f3e5561aee24a59d5a86a0a55f8750e77e55fbad87fbc0b3e1eef74e5ee218
+2020/11/14 15:59:02 [INFO] ▶ Analyzing ea5b97cd248b71d92588ebe1363a04a9ec1ef844338d65e0df6fd96ce2f422ad
+2020/11/14 15:59:02 [INFO] ▶ Analyzing c44d347670f690263be4ee32cd52dd250c8f5c183c960a584beb6b0f079093d8
+2020/11/14 15:59:02 [INFO] ▶ Image [secureimages/prometheus:2.22.1-alpine-3.12.1] contains NO unapproved vulnerabilities
 ```
 
 Security scanning using Trivy
 ```
-docker run --rm -v /var/run/docker.sock:/var/run/docker.sock:ro aquasec/trivy:0.12.0 --no-progress secureimages/prometheus:2.22.0-alpine-3.12.0
-2020-10-15T19:12:58.359Z        INFO    Need to update DB
-2020-10-15T19:12:58.359Z        INFO    Downloading DB...
-2020-10-15T19:13:46.091Z        INFO    Detecting Alpine vulnerabilities...
+docker run --rm -v /var/run/docker.sock:/var/run/docker.sock:ro aquasec/trivy:0.12.0 --no-progress secureimages/prometheus:2.22.1-alpine-3.12.1
+2020-11-14T15:59:10.085Z        INFO    Need to update DB
+2020-11-14T15:59:10.085Z        INFO    Downloading DB...
+2020-11-14T15:59:16.343Z        INFO    Detecting Alpine vulnerabilities...
 
-secureimages/prometheus:2.22.0-alpine-3.12.0 (alpine 3.12.0)
+secureimages/prometheus:2.22.1-alpine-3.12.1 (alpine 3.12.1)
 ============================================================
 Total: 0 (UNKNOWN: 0, LOW: 0, MEDIUM: 0, HIGH: 0, CRITICAL: 0)
 ```
@@ -32,32 +32,32 @@ Total: 0 (UNKNOWN: 0, LOW: 0, MEDIUM: 0, HIGH: 0, CRITICAL: 0)
 
 [https://hub.docker.com/r/prom/prometheus](https://hub.docker.com/r/prom/prometheus)
 ```
-docker pull prom/prometheus:v2.22.0
+docker pull prom/prometheus:v2.22.1
 ```
 
 Security scanning using Clair
 ```
-clair-scanner prom/prometheus:v2.22.0
-2020/10/15 19:13:53 [INFO] ▶ Start clair-scanner
-2020/10/15 19:13:55 [INFO] ▶ Server listening on port 9279
-2020/10/15 19:13:55 [INFO] ▶ Analyzing e190ccde9304b67c2ab7e688bbd97bf481172235a7261235ba4ae98e7b037e46
-2020/10/15 19:13:55 [INFO] ▶ Analyzing e4023a9eb3999a69f0f67a2f279eec84f03ed4839fc442c4dec014a278ac45a9
-2020/10/15 19:13:55 [INFO] ▶ Analyzing 6adf16617273d1a02a1b0a479d9f4f1b1f795f7b7b857c786881b11944adc9a1
-2020/10/15 19:13:55 [INFO] ▶ Analyzing 5e328199826f7628420bd2df714f194d78b37ff782fce920f301c3616c95739a
-2020/10/15 19:13:55 [INFO] ▶ Analyzing 642ba3a6b3f36f584824dd2150e14c1fd6b503af4769f0f83f35fa54d59f9670
-2020/10/15 19:13:55 [INFO] ▶ Analyzing 2d20c95722f79ff71a7b04456687528dfae75d5b40bc4a5ed7de3d13bd3bf666
-2020/10/15 19:13:55 [INFO] ▶ Analyzing fd1a63fc3f2cc6c19b164e12e40a7c39844b1bca691cbd71cfcf9cb20f1f911d
-2020/10/15 19:13:55 [INFO] ▶ Analyzing 744b86cbbf3e3ec6a1bfefc4e5c31c2ac18096af3628401aef2dea1449fcc505
-2020/10/15 19:13:55 [INFO] ▶ Analyzing 81775fe816a50ce0a690baa0b00a9f49f724c74da4e95b1cfe8896fbe4e7c543
-2020/10/15 19:13:55 [INFO] ▶ Analyzing 3b54e4bbc31d7d5aebb58853e3e121a65e89dbc1f4f51ccab02141d6137b9073
-2020/10/15 19:13:55 [INFO] ▶ Analyzing bcb88612cb48598d7a65de4de0079dd8c1ef6fdcc9a7a269c97de433b506704d
-2020/10/15 19:13:55 [INFO] ▶ Analyzing 04eed1d944428a512683be06e0414aa2c55bc12567926f3f6d5106140b344ea6
+clair-scanner prom/prometheus:v2.22.1
+2020/11/14 15:59:21 [INFO] ▶ Start clair-scanner
+2020/11/14 15:59:24 [INFO] ▶ Server listening on port 9279
+2020/11/14 15:59:24 [INFO] ▶ Analyzing e190ccde9304b67c2ab7e688bbd97bf481172235a7261235ba4ae98e7b037e46
+2020/11/14 15:59:24 [INFO] ▶ Analyzing e4023a9eb3999a69f0f67a2f279eec84f03ed4839fc442c4dec014a278ac45a9
+2020/11/14 15:59:24 [INFO] ▶ Analyzing 42eef22d62a9f27b9063319dc89dfc4470bf3cc3e4e758d26c5b27079c2a39f3
+2020/11/14 15:59:24 [INFO] ▶ Analyzing 487f327365fe4d8097b5d45f168f3689db59274bf5c8d1a8fb4533fe54553e0a
+2020/11/14 15:59:24 [INFO] ▶ Analyzing 4bc9099b48015d7ae406cda403676a6fe98a95bacae8aea298e1f76536f63a1c
+2020/11/14 15:59:24 [INFO] ▶ Analyzing d69560eccae0f24cb5eeac034726bcf64bcbe4d1a1434846d3855a87513b1830
+2020/11/14 15:59:24 [INFO] ▶ Analyzing 3b26605c1f894fc100812a1f68bed1d319f95c778e83ff8de916175a9cb0d726
+2020/11/14 15:59:24 [INFO] ▶ Analyzing 40110a934103fe840023d6602021fae599c68cc0238bbc1dfdd75d53a5cd422f
+2020/11/14 15:59:24 [INFO] ▶ Analyzing ea9ab2461f6663dbd42048c9fc13be96b6066aacd1226b2c7e9f58c0bf636632
+2020/11/14 15:59:24 [INFO] ▶ Analyzing ef09a41161216632dca29a5cc939ed06cb402cf50c13c1cd43db3991e039a0c1
+2020/11/14 15:59:24 [INFO] ▶ Analyzing 404abe8d1d19cae1e87e5bea32ecd8b8db9293391b7c7eebb75635eee16f71e7
+2020/11/14 15:59:24 [INFO] ▶ Analyzing 1ba9bed25b1087cee428adaa87432df1cdf2c12415b4019b953bfb223eee0edc
 ```
 
 Security scanning using Trivy
 ```
-docker run --rm -v /var/run/docker.sock:/var/run/docker.sock:ro aquasec/trivy:0.12.0 --no-progress prom/prometheus:v2.22.0
-2020-10-15T19:13:59.500Z        INFO    Need to update DB
-2020-10-15T19:13:59.500Z        INFO    Downloading DB...
-2020-10-15T19:14:09.788Z        WARN    OS is not detected and vulnerabilities in OS packages are not detected.
+docker run --rm -v /var/run/docker.sock:/var/run/docker.sock:ro aquasec/trivy:0.12.0 --no-progress prom/prometheus:v2.22.1
+2020-11-14T15:59:27.494Z        INFO    Need to update DB
+2020-11-14T15:59:27.494Z        INFO    Downloading DB...
+2020-11-14T15:59:34.971Z        WARN    OS is not detected and vulnerabilities in OS packages are not detected.
 ```
