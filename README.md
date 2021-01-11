@@ -2,62 +2,64 @@
 
 Prometheus, image is based on the Alpine base image with 0 vulnerabilities.
 
-## Current Docker image (~171MB)
+## Current Docker image (~175MB)
 
 Security scanning using Clair
 ```
-clair-scanner secureimages/prometheus:2.22.1-alpine-3.12.1
-2020/11/14 15:59:00 [INFO] ▶ Start clair-scanner
-2020/11/14 15:59:02 [INFO] ▶ Server listening on port 9279
-2020/11/14 15:59:02 [INFO] ▶ Analyzing ff72598b05f57e6f83d56b858ba9783796e99aea2dcef391b3fa688c1e077ae5
-2020/11/14 15:59:02 [INFO] ▶ Analyzing 04f3e5561aee24a59d5a86a0a55f8750e77e55fbad87fbc0b3e1eef74e5ee218
-2020/11/14 15:59:02 [INFO] ▶ Analyzing ea5b97cd248b71d92588ebe1363a04a9ec1ef844338d65e0df6fd96ce2f422ad
-2020/11/14 15:59:02 [INFO] ▶ Analyzing c44d347670f690263be4ee32cd52dd250c8f5c183c960a584beb6b0f079093d8
-2020/11/14 15:59:02 [INFO] ▶ Image [secureimages/prometheus:2.22.1-alpine-3.12.1] contains NO unapproved vulnerabilities
+clair-scanner secureimages/prometheus:2.24.0-alpine-3.12.3
+2021/01/11 09:05:32 [INFO] ▶ Start clair-scanner
+2021/01/11 09:05:33 [INFO] ▶ Server listening on port 9279
+2021/01/11 09:05:33 [INFO] ▶ Analyzing 239a994d90a30d28d70001f62415dabc8636df0ebb561fe4d6c1b4b1d4a6cbcf
+2021/01/11 09:05:34 [INFO] ▶ Analyzing a70f4a18dbdcd7f8a8bc81865f728780754a223d4b337cc899872bff413aae66
+2021/01/11 09:05:34 [INFO] ▶ Analyzing 8c3360e9e0e3bed1aa6ab6e747e3455a7aeadfe0660c809b9cfd08e9c44010ff
+2021/01/11 09:05:34 [INFO] ▶ Analyzing 702d130df2478a24c1c3299174728ecc81ba8a7b45be12432eb9389a4d2cb2b3
+2021/01/11 09:05:35 [INFO] ▶ Image [secureimages/prometheus:2.24.0-alpine-3.12.3] contains NO unapproved vulnerabilities
 ```
 
 Security scanning using Trivy
 ```
-docker run --rm -v /var/run/docker.sock:/var/run/docker.sock:ro aquasec/trivy:0.12.0 --no-progress secureimages/prometheus:2.22.1-alpine-3.12.1
-2020-11-14T15:59:10.085Z        INFO    Need to update DB
-2020-11-14T15:59:10.085Z        INFO    Downloading DB...
-2020-11-14T15:59:16.343Z        INFO    Detecting Alpine vulnerabilities...
+docker run --rm -v /var/run/docker.sock:/var/run/docker.sock:ro aquasec/trivy:0.15.0 --no-progress secureimages/prometheus:2.24.0-alpine-3.12.3
+2021-01-11T09:05:43.900Z        INFO    Need to update DB
+2021-01-11T09:05:43.900Z        INFO    Downloading DB...
+2021-01-11T09:05:50.463Z        INFO    Detecting Alpine vulnerabilities...
+2021-01-11T09:05:50.464Z        INFO    Trivy skips scanning programming language libraries because no supported file was detected
 
-secureimages/prometheus:2.22.1-alpine-3.12.1 (alpine 3.12.1)
+secureimages/prometheus:2.24.0-alpine-3.12.3 (alpine 3.12.3)
 ============================================================
 Total: 0 (UNKNOWN: 0, LOW: 0, MEDIUM: 0, HIGH: 0, CRITICAL: 0)
 ```
 
-## Official Docker image (~168MB)
+## Official Docker image (~173MB)
 
 [https://hub.docker.com/r/prom/prometheus](https://hub.docker.com/r/prom/prometheus)
 ```
-docker pull prom/prometheus:v2.22.1
+docker pull prom/prometheus:v2.24.0
 ```
 
 Security scanning using Clair
 ```
-clair-scanner prom/prometheus:v2.22.1
-2020/11/14 15:59:21 [INFO] ▶ Start clair-scanner
-2020/11/14 15:59:24 [INFO] ▶ Server listening on port 9279
-2020/11/14 15:59:24 [INFO] ▶ Analyzing e190ccde9304b67c2ab7e688bbd97bf481172235a7261235ba4ae98e7b037e46
-2020/11/14 15:59:24 [INFO] ▶ Analyzing e4023a9eb3999a69f0f67a2f279eec84f03ed4839fc442c4dec014a278ac45a9
-2020/11/14 15:59:24 [INFO] ▶ Analyzing 42eef22d62a9f27b9063319dc89dfc4470bf3cc3e4e758d26c5b27079c2a39f3
-2020/11/14 15:59:24 [INFO] ▶ Analyzing 487f327365fe4d8097b5d45f168f3689db59274bf5c8d1a8fb4533fe54553e0a
-2020/11/14 15:59:24 [INFO] ▶ Analyzing 4bc9099b48015d7ae406cda403676a6fe98a95bacae8aea298e1f76536f63a1c
-2020/11/14 15:59:24 [INFO] ▶ Analyzing d69560eccae0f24cb5eeac034726bcf64bcbe4d1a1434846d3855a87513b1830
-2020/11/14 15:59:24 [INFO] ▶ Analyzing 3b26605c1f894fc100812a1f68bed1d319f95c778e83ff8de916175a9cb0d726
-2020/11/14 15:59:24 [INFO] ▶ Analyzing 40110a934103fe840023d6602021fae599c68cc0238bbc1dfdd75d53a5cd422f
-2020/11/14 15:59:24 [INFO] ▶ Analyzing ea9ab2461f6663dbd42048c9fc13be96b6066aacd1226b2c7e9f58c0bf636632
-2020/11/14 15:59:24 [INFO] ▶ Analyzing ef09a41161216632dca29a5cc939ed06cb402cf50c13c1cd43db3991e039a0c1
-2020/11/14 15:59:24 [INFO] ▶ Analyzing 404abe8d1d19cae1e87e5bea32ecd8b8db9293391b7c7eebb75635eee16f71e7
-2020/11/14 15:59:24 [INFO] ▶ Analyzing 1ba9bed25b1087cee428adaa87432df1cdf2c12415b4019b953bfb223eee0edc
+clair-scanner prom/prometheus:v2.24.0
+2021/01/11 09:06:26 [INFO] ▶ Start clair-scanner
+2021/01/11 09:06:29 [INFO] ▶ Server listening on port 9279
+2021/01/11 09:06:29 [INFO] ▶ Analyzing 352140653fc205ae836606482b8f027cb59c03b775c570bca4a1f5d8b3f35223
+2021/01/11 09:06:29 [INFO] ▶ Analyzing f43e75f60d0249cc4968d9afca6446d0a97d309ad897f0de2178c87a0e5cda4c
+2021/01/11 09:06:29 [INFO] ▶ Analyzing 02ad543a196a3a2152ea098fd6d65e6397845f17befeadd13c5c18157a3fb3ca
+2021/01/11 09:06:29 [INFO] ▶ Analyzing 8e37acee1ae961074dbbfdd3a9344e82414353944437cd03b6adb944489ff95b
+2021/01/11 09:06:30 [INFO] ▶ Analyzing 061cd54e094bee497d7808d89f8bbc46d750370b0abe05cd8e3367535a192ec8
+2021/01/11 09:06:30 [INFO] ▶ Analyzing 8e9f058550ea445e54f6bd15e6ad8c344ba5b8b9ca0913ddef9f950e5676c194
+2021/01/11 09:06:30 [INFO] ▶ Analyzing a4fca5344349614d6ee665e0ae4b08ba1a1e26a823ab7e10386266d2b520db74
+2021/01/11 09:06:30 [INFO] ▶ Analyzing 301b6752b6bf510479276722f1bfb8b765a574eea2fb88d0d4b815913b6460e9
+2021/01/11 09:06:30 [INFO] ▶ Analyzing 9459cde4eac65eebddd726c9fdb94619f1daee91f46b8a3f8489248f7b1a527d
+2021/01/11 09:06:30 [INFO] ▶ Analyzing c7b9de04005e4280fddb88b97e0de1a71ef23f98c4f6e0810640901a02c738da
+2021/01/11 09:06:30 [INFO] ▶ Analyzing e8a26fb1ce64c4a6e143ae50f288cddb7109737ec3b031255d24825b9a097428
+2021/01/11 09:06:30 [INFO] ▶ Analyzing 56ca9fdb35cd6e3e27c313682fab484eddac37dd9f15c16f2fbaba9f6b28792e
 ```
 
 Security scanning using Trivy
 ```
-docker run --rm -v /var/run/docker.sock:/var/run/docker.sock:ro aquasec/trivy:0.12.0 --no-progress prom/prometheus:v2.22.1
-2020-11-14T15:59:27.494Z        INFO    Need to update DB
-2020-11-14T15:59:27.494Z        INFO    Downloading DB...
-2020-11-14T15:59:34.971Z        WARN    OS is not detected and vulnerabilities in OS packages are not detected.
+docker run --rm -v /var/run/docker.sock:/var/run/docker.sock:ro aquasec/trivy:0.15.0 --no-progress prom/prometheus:v2.24.0
+2021-01-11T09:06:43.802Z        INFO    Need to update DB
+2021-01-11T09:06:43.802Z        INFO    Downloading DB...
+2021-01-11T09:06:51.092Z        WARN    OS is not detected and vulnerabilities in OS packages are not detected.
+2021-01-11T09:06:51.093Z        INFO    Trivy skips scanning programming language libraries because no supported file was detected
 ```
